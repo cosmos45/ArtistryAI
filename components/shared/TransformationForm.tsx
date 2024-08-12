@@ -54,7 +54,7 @@ const TransformationForm = ({
         useState<Transformations | null>(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isTransforming, setIsTransforming] = useState(false);
-    const [transformation, setTransformation] = useState(config)
+    const [transformationConfig, setTransformation] = useState(config)
     const [isPending, startTransition] = useTransition()
 
     const initialValues = data && action === 'Update' ? {
@@ -114,7 +114,7 @@ const TransformationForm = ({
     const onTransformHandler = async() => {
         setIsTransforming(true)
 
-        setTransformationConfig(
+        setTransformation(
             deepMergeObjects(
                 newTransformation, transformationConfig
             )
